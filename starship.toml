@@ -1,0 +1,36 @@
+# Get an empty line between commands for readability
+add_newline = true
+
+# The prompt character (Orange arrow for success, Muted Red for error)
+[character]
+success_symbol = "[❯](#ff7a00)"
+error_symbol = "[✗](#e05f65)"
+
+# Directory styling (Light Ash)
+[directory]
+style = "bold #d4d4d6"
+read_only = " 🔒"
+truncation_length = 3
+truncate_to_repo = true
+
+# Git Branch formatting (Amber/Orange with a cool icon)
+[git_branch]
+symbol = " "
+style = "italic #d97736"
+format = 'on [$symbol$branch]($style) '
+
+# Git Status formatting (Shows + additions, - deletions, etc. in Muted Red)
+[git_status]
+style = "bold #f16c75"
+format = '([$all_status$ahead_behind]($style) )'
+
+# Only show time if a command takes longer than 2 seconds (Slate Blue)
+[cmd_duration]
+min_time = 2000
+format = "took [$duration](#5c7e9c) "
+
+# Node.js specific info (Only shows up when you are in a JS/TS project)
+[nodejs]
+symbol = " "
+style = "bold #8abeb7"
+format = 'via [$symbol($version )]($style)'

@@ -71,3 +71,4 @@ alias update="sudo dnf upgrade --refresh"
 # 6. ZOXIDE INIT (Must be at the bottom)
 # ==========================================
 eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
