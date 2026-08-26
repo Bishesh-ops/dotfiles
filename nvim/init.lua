@@ -346,7 +346,8 @@ require("mason-tool-installer").setup({ ensure_installed = ensure_tools })
 
 for name, server in pairs(servers) do
 	server.capabilities = vim.tbl_deep_extend("force", capabilities, server.capabilities or {})
-	require("lspconfig")[name].setup(server)
+	vim.lsp.config(name, server)
+	vim.lsp.enable(name)
 end
 
 require("conform").setup({
