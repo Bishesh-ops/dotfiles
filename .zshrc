@@ -42,31 +42,46 @@ setopt prompt_subst
 
 # The prompt: [user@matcha] ~/current/dir 
 # ❯ 
+# The prompt: [user@matcha] ~/current/dir 
+# ❯ 
 PROMPT=$'\n%B%F{8}[%n@%m]%f %F{7}%~%f\n%F{3}❯%f%b '
-
+ 
 # ==========================================
 # 5. ALIASES & WORKFLOW
 # ==========================================
 # Eza (Modern LS)
-alias ls="eza --icons=always --group-directories-first"
-alias ll="eza -lh --icons=always --group-directories-first"
-alias la="eza -lah --icons=always --group-directories-first"
-alias tree="eza --tree --icons=always"
+unalias ls ll la tree 2>/dev/null
 
+ls() {
+    eza --icons=always --group-directories-first "$@" | lolcat
+}
+
+ll() {
+    eza -lh --icons=always --group-directories-first "$@" | lolcat
+}
+
+la() {
+    eza -lah --icons=always --group-directories-first "$@" | lolcat
+}
+
+tree() {
+    eza --tree --icons=always "$@" | lolcat
+}
+ 
 # Neovim Shortcut
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
-
+ 
 # Turborepo & Pnpm Shortcuts
 alias p="pnpm"
 alias px="pnpm dlx"
 alias tu="pnpm turbo run"
 alias dev="pnpm turbo run dev"
-
+ 
 # System updates (Fedora specific)
 alias update="sudo dnf upgrade --refresh"
-
+ 
 # ==========================================
 # 6. ZOXIDE INIT (Must be at the bottom)
 # ==========================================
